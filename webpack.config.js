@@ -5,6 +5,15 @@ module.exports = {
     // https://webpack.js.org/configuration/entry-context/
     entry: './app.js',
 
+    // webpack, webpack-cli
+    devServer: {
+        static: {
+            directory: path.join(__dirname, './'), //
+        },
+        open: true,
+        port: 'auto'
+    },
+
     // https://webpack.js.org/configuration/output/
     output: {
         path: path.resolve( __dirname, 'dist' ),
