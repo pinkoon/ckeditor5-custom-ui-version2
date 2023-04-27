@@ -70,6 +70,7 @@ export default class BootStrapEditor extends Editor {
       }
     });
 
+    debugger;
     this.sourceElement = element;
 
     this.data.processor = new HtmlDataProcessor();
@@ -96,6 +97,14 @@ export default class BootStrapEditor extends Editor {
           .then(() => editor.data.init(getDataFromElement(element)))
           .then(() => editor.fire('ready'))
           .then(() => editor)
+          .then(() => {
+            debugger; // TEST CODE (2023.04.27)
+            // Add the toolbar to the container
+            const toolbarContainer = document.querySelector( '#toolbar-container' );
+            for (let key in editor.ui.view.toolbarButtons) {
+              toolbarContainer.append(editor.ui.view.toolbarButtons[key][0]);
+            }
+          })
       );
     });
   }
